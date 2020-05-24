@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Evliya_Celebi_Gezi_Rehberi2.Models.Sehir>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <div class="container">
+        <p>
+            <h2>Index</h2>
+        </p>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Bolge.Adi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.aciklama)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Resim)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Anasayfa)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Bolge.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Adi)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.aciklama)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Resim)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Anasayfa)
+                    </td>
+                    <td>
+
+                        <a href="@Url.Action("Details","Sehir",new { id = item.Id })" class="btn btn-success">
+                            <i class="far fa-eye"></i>
+                            <span>
+                                Details
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Edit","Sehir",new { id = item.Id })" class="btn btn-info">
+                            <i class="fas fa-edit"></i>
+                            <span>
+                                Edit
+                            </span>
+                        </a>
+                        <a href="@Url.Action("Delete","Sehir",new { id = item.Id })" class="btn btn-danger">
+                            <i class="fas fa-trash"></i>
+                            <span>
+                                Delete
+                            </span>
+                        </a>
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>

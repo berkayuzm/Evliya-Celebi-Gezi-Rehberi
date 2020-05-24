@@ -1,0 +1,28 @@
+﻿@model List<Evliya_Celebi_Gezi_Rehberi2.Models.Sehir>
+
+@{
+    ViewBag.Title = "Sehirler";
+}
+
+<h2 style="text-align:center; margin-top:40px;">Tüm Şehirler</h2>
+
+
+<div class="container">
+    <div class="row " style="margin-left: 15px; margin-bottom: 100px;">
+
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 alt">
+                <a href="/Home/SehirDetails/@item.Id">
+                    <div class="con">
+                        <img src=@Url.Content(item.Resim) alt="" class="homeimg">
+                        <div class="center">@item.Adi</div>
+                    </div>
+                </a>
+            </div>
+        }
+
+
+
+    </div>
+</div>

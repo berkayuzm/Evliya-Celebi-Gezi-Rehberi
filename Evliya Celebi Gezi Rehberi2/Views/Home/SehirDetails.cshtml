@@ -1,0 +1,80 @@
+﻿@model Evliya_Celebi_Gezi_Rehberi2.Models.Sehir
+@{
+    ViewBag.Title = "SehirDetails";
+}
+
+<h2 class="sehir-details-tag">@Model.Adi</h2>
+
+<div class="container">
+
+    <img src="@Url.Content(Model.Resim)" class="sehir-details-img" alt="Alternate Text" />
+
+    <p>
+        @Model.aciklama
+
+
+    </p>
+    <div id="list-example" class="list-group list-group-horizontal-md sehir-details-list">
+        <a class="list-group-item list-group-item-action  text-center font-weight-bold" href="#list-item-1">Doğal Mekanlar</a>
+        <a class="list-group-item list-group-item-action  text-center font-weight-bold" href="#list-item-2">Tarihi Yerler</a>
+        <a class="list-group-item list-group-item-action  text-center font-weight-bold" href="#list-item-3">Eğlence Mekanları</a>
+
+    </div>
+    <div data-spy="scroll" data-target="#list-example" data-offset="10" class="scrollspy-example">
+        <div id="list-item-1">
+            <h4 class="section-1 text-center">Doğal Mekanlar</h4>
+            <hr />
+            @{ 
+                //EĞER BİR ŞEHRE AİT BİRDEN FAZLA MEKAN GÖSTERİLECEKSE BURADA DÖNGÜ KUR!!!!!!!
+                //ŞU ANDA HER ŞEHİRE AİT SADECE "BİRER" TANE MEKAN GÖSTERİR....!
+                if (ViewBag.dogalmekan.Count > 0) { 
+                <h3 style="text-align:center;margin-bottom:15px;">@ViewBag.dogalmekan[0].Adi</h3>
+                <img style="width:100%;margin-right:auto" src=@Url.Content(ViewBag.dogalmekan[0].Image) alt="Alternate Text" />
+                <p>@ViewBag.dogalmekan[0].Aciklama</p>
+                }
+                else
+                {
+                  <h3>Doğal mekan eklenmemiş!!!!!!!!</h3>
+                }
+            }
+        </div>
+
+        <div id="list-item-2">
+            <h4 class="section-1 text-center">Tarihi Yerler</h4>
+            <hr />
+            @{
+
+                if (ViewBag.tarihimekan.Count > 0) { 
+                <h3 style="text-align:center;margin-bottom:15px;">@ViewBag.tarihimekan[0].Adi</h3>
+                <img style="width:100%;margin-right:auto" src=@Url.Content(ViewBag.tarihimekan[0].Image) alt="Alternate Text" />
+                <p>@ViewBag.tarihimekan[0].Aciklama</p>
+                }
+                else
+                {
+
+                     <h3>Tarihi mekan eklenmemiş</h3>
+                }
+            }
+        </div>
+
+        <div id="list-item-3">
+            <h4 class="section-1 text-center">Eğlence Mekanları</h4>
+            <hr />
+            @{
+
+                if (ViewBag.eglencemekan.Count > 0)
+                {
+                    <h3 style="text-align:center;margin-bottom:15px;">@ViewBag.eglencemekan[0].Adi</h3>
+                    <img style="width:100%;margin-right:auto" src=@Url.Content(ViewBag.eglencemekan[0].Image) alt="Alternate Text" />
+                    <p>@ViewBag.eglencemekan[0].Aciklama</p>
+                }
+                else
+                {
+
+                    <h3>eglence mekan eklenmemiş</h3>
+                }
+            }
+        </div>
+    </div>
+</div>
+

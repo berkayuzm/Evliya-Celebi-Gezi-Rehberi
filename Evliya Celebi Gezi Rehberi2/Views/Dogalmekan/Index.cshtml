@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Evliya_Celebi_Gezi_Rehberi2.Models.Dogalmekan>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <div class="container">
+        <p>
+            <h2>Index</h2>
+        </p>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Sehir.Adi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Adi)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aciklama)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Sehir.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Adi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aciklama)
+            </td>
+ 
+            <a href="@Url.Action("Details","Dogalmekan",new { id = item.Id })" class="btn btn-success">
+                <i class="far fa-eye"></i>
+                <span>
+                    Details
+                </span>
+            </a>
+            <a href="@Url.Action("Edit","Dogalmekan",new { id = item.Id })" class="btn btn-info">
+                <i class="fas fa-edit"></i>
+                <span>
+                    Edit
+                </span>
+            </a>
+            <a href="@Url.Action("Delete","Dogalmekan",new { id = item.Id })" class="btn btn-danger">
+                <i class="fas fa-trash"></i>
+                <span>
+                    Delete
+                </span>
+            </a>
+        </tr>
+            }
+
+        </table>
+    </div>

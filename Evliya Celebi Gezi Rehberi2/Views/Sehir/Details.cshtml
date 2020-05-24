@@ -1,0 +1,71 @@
+﻿@model Evliya_Celebi_Gezi_Rehberi2.Models.Sehir
+
+@{
+    ViewBag.Title = "Details";
+}
+    <div class="container">
+        <p><h2 class="text-success">Details</h2></p>
+
+
+        <div>
+            <h4 class="text-primary font-weight-normal col-md-10">Şehir</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Bolge.Adi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Bolge.Adi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Adi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Adi)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.aciklama)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.aciklama)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Resim)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Resim)
+                </dd>
+
+                <dt>
+                    @Html.DisplayNameFor(model => model.Anasayfa)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Anasayfa)
+                </dd>
+
+            </dl>
+
+            <p>
+                <a href="@Url.Action("Edit","Sehir",new { id = Model.Id })" class="btn btn-info">
+                    <i class="fas fa-edit"></i>
+                    <span>
+                        Edit
+                    </span>
+                </a>
+                <a href="@Url.Action("Index","Sehir")" class="btn btn-secondary">
+                    <i class="fas fa-undo-alt"></i>
+                    <span>
+                        Back to List
+                    </span>
+                </a>
+            </p>
+        </div>
+    </div>

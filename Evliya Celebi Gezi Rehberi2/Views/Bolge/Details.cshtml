@@ -1,0 +1,40 @@
+﻿@model Evliya_Celebi_Gezi_Rehberi2.Models.Bolge
+
+@{
+    ViewBag.Title = "Details";
+}
+    <div class="container">
+        <p>
+        <p><h2 class="text-success">Details</h2></p>
+        </p>
+        <div>
+            <h4 class="text-secondary font-weight-normal col-md-10">Bolge</h4>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.Adi)
+                </dt>
+
+                <dd>
+                    @Html.DisplayFor(model => model.Adi)
+                </dd>
+
+            </dl>
+        </div>
+        <p>
+
+            <a href="@Url.Action("Edit","Bolge",new { id = Model.Id })" class="btn btn-info">
+                <i class="fas fa-edit"></i>
+                <span>
+                    Edit
+                </span>
+            </a>
+            <a href="@Url.Action("Index","Bolge")" class="btn btn-secondary">
+                <i class="fas fa-undo-alt"></i>
+                <span>
+                    Back to List
+                </span>
+            </a>
+
+        </p>
+    </div>
